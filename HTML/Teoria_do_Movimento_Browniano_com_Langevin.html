@@ -11783,6 +11783,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Autor: Caio Dallaqua</p>
+<p>Orientador: Gastão Krein, IFT-Unesp</p>
 <p>Sumário:</p>
 <ul>
 <li><a href="#0---Introdução">0 - Introdução</a></li>
@@ -11847,6 +11849,7 @@ div#notebook {
 <p>$$m\dot v = F(t) \tag{1}$$</p>
 <p>onde $\dot v = \frac{dv}{dt}$, $v$ é a velocidade da partícula, e $F(t)$ uma força aleatória que possui um valor para cada instante de tempo $t$.</p>
 <p>A ideia por trás de $F(t)$ é que a partícula de interesse estará colidindo de forma intensa e imprevisível com as moléculas do fluido. Disso vem a característica aleatória de $F$, como tentativa de adequar um modelo ao sistema. $F(t)$ é o que tecnicamente recebe o nome de Ruído Gaussiano Branco (White Gaussian Noise).</p>
+<p>Nota: <em>Quando dizemos que a força no modelo de Langevin é aleatória, queremos dizer que ela é aleatória para todos os propósitos práticos... e não realmente aleatória. Se fôssemos capazes de escrever as equações de movimento para todas as partículas no sistema, então saberíamos aonde elas estão indo, quais partículas colidirão a seguir, etc... e não tem nada de aleatório nisso! No entanto, como temos um grande número de partículas, para todos os propósitos práticos, essa força é totalmente aleatória</em>.</p>
 
 </div>
 </div>
@@ -11874,16 +11877,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Quando falamos de tomar médias de equações como a eq. (2), precisamos ser cautelosos, pois existem duas médias envolvidas:</p>
-<ul>
-<li>$\overline{...}$ média condicional, com uma condição inicial $v_0$;</li>
-<li>$\langle ... \rangle$ média completa, isto é, médias de todos os possíveis $v_0$'s e suas realizações.</li>
-</ul>
-<p>Feita essa ressalva, vamos começar a fazer contas.</p>
 <p>$$v(t) = v_0 + \frac{1}{m} \int_{0}^{t} dt' F(t')$$</p>
-<p>Tomando a média condicional para $v_0$:</p>
+<p>Tomando a média:</p>
 <p>$$\overline{v(t)} = v_0 + \frac{1}{m} \overline{\int_{0}^{t} dt' F(t')} = v_0 + \frac{1}{m} \int_{0}^{t}dt' \overline{F(t')}$$</p>
-<p>Assumimos $\overline{F(t)} = \langle F(t) \rangle = 0$, portanto</p>
+<p>Assumimos $\overline{F(t)} = 0$, portanto</p>
 <p>$$\large \overline{v(t)} = v_0 \tag{3}$$</p>
 <p>Se a média não fosse zero para as forças aleatórias, a partícula poderia ser acelerada indefinidamente numa direção, até sair do recipiente ou colidir com sua parede, o que tira o caráter de sistema isolado da análise.</p>
 
@@ -11894,7 +11891,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="1.2---M&#233;dia-condicional-da-velocidade-quadr&#225;tica">1.2 - M&#233;dia condicional da velocidade quadr&#225;tica<a class="anchor-link" href="#1.2---M&#233;dia-condicional-da-velocidade-quadr&#225;tica">&#182;</a></h3>
+<h3 id="1.2---M&#233;dia-da-velocidade-quadr&#225;tica">1.2 - M&#233;dia da velocidade quadr&#225;tica<a class="anchor-link" href="#1.2---M&#233;dia-da-velocidade-quadr&#225;tica">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11904,13 +11901,13 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Quadrando $v(t) = v_0 + \frac{1}{m} \int_{0}^{t}dt' F(t')$, obtemos</p>
 <p>$$\\ v^2(t) = v_0^2 + 2\frac{v_0}{m}\int_{0}^{t}dt' F(t') + \frac{1}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 F(t_1)F(t_2),$$</p>
-<p>cuja média condicional é</p>
+<p>cuja média é</p>
 <p>$$\begin{align}
 \overline{v^2(t)} &amp;= v_0^2 + 2\frac{v_0}{m}\int_{0}^{t}dt' \overline{F(t')} + \frac{1}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 \overline{F(t_1)F(t_2)} \\ \\
 &amp;= v_0^2 + \frac{1}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 \overline{F(t_1)F(t_2)}
 \end{align}$$</p>
 <p>Fazemos a requisição de que $F(t)$ possua a seguinte propriedade:</p>
-<p>$$\overline{F(t_1)F(t_2)} = \langle F(t_1)F(t_2) \rangle = \delta(t_1-t_2)\Gamma$$</p>
+<p>$$\overline{F(t_1)F(t_2)} = \delta(t_1-t_2)\Gamma$$</p>
 <p>Temos então</p>
 <p>$$\begin{align}
 \overline{v^2(t)} &amp;= v_0^2 + \frac{\Gamma}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 \delta(t_1-t_2)\\
@@ -11919,7 +11916,7 @@ div#notebook {
 <p>A equação acima equivale a</p>
 <p>$$ \large \overline{v^2(t)} = v_0^2 + \Gamma\frac{t}{m^2} \tag{4}$$</p>
 <p>Isso não faz sentido físico, pois diz que $t \rightarrow \infty \implies energia \rightarrow \infty$...</p>
-<p>Para o modelo, falta considerar a força de arraste. Essa força é proporcional e contrária ao momento linear da partícula.</p>
+<p>Para o modelo, falta considerar a força de arraste. Essa força é proporcional e contrária à velocidade da partícula.</p>
 
 </div>
 </div>
@@ -11974,15 +11971,14 @@ m\dot v &amp;= -m\gamma v + F(t)\\ \\
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Ao tomarmos a média total da eq. (8), temos</p>
 <p>$$\begin{align}
-\langle v(t) \rangle &amp;= \big\langle v_0e^{-\gamma t}\big\rangle + \bigg\langle\frac{e^{-\gamma t}}{m}\int_{0}^{t} dt' F(t')e^{\gamma t'}\bigg\rangle \\ \\
-\langle v(t) \rangle &amp;= v_0e^{-\gamma t} + \frac{e^{-\gamma t}}{m}\int_{0}^{t} dt' \big\langle F(t') \big\rangle e^{\gamma t'}
+\overline{v(t)} &amp;= \overline{v_0e^{-\gamma t}} + \overline{\frac{e^{-\gamma t}}{m}\int_{0}^{t} dt' F(t')e^{\gamma t'}}\\ \\
+\overline{v(t)} &amp;= v_0e^{-\gamma t} + \frac{e^{-\gamma t}}{m}\int_{0}^{t} dt' \overline{F(t')}e^{\gamma t'}
 \end{align}$$</p>
-<p>Lembre-se, entretanto, que $\big\langle F(t) \big\rangle = 0$. Como já argumentamos, $\big\langle F(t) \big\rangle \neq 0$ significaria que a partícula de interesse poderia ser acelerada indefinidamente numa direção, de modo a sair do recipiente ou chocar com sua parede. Usando esse fato,</p>
+<p>Lembre-se, entretanto, que $\overline{F(t)} = 0$. Como já argumentamos, $\overline{F(t)} \neq 0$ significaria que a partícula de interesse poderia ser acelerada indefinidamente numa direção, de modo a sair do recipiente ou chocar com sua parede. Usando esse fato,</p>
 <p>$$\begin{align}
-\langle v(t) \rangle &amp;= v_0e^{-\gamma t} + \frac{e^{-\gamma t}}{m}\int_{0}^{t} dt' \big\langle F(t') \big\rangle e^{\gamma t'} \\ \\
-&amp;= v_0e^{-\gamma t} \tag{9}
+\overline{v(t)} = v_0e^{-\gamma t} \tag{9}
 \end{align}$$</p>
-<p>O que faz sentido físico, pois $t \rightarrow \infty \implies \large \langle v(t) \rangle = 0 \large$.</p>
+<p>O que faz sentido físico, pois $t \rightarrow \infty \implies \large \overline{v(t)} = 0$.</p>
 
 </div>
 </div>
@@ -12002,13 +11998,13 @@ m\dot v &amp;= -m\gamma v + F(t)\\ \\
 <p>Quadrando a equação $v(t) = v_0 e^{-\gamma t} + \frac{e^{-\gamma t}}{m}\int_{0}^{t} dt' F(t') e^{\gamma t'}$, chegamos a</p>
 <p>$$v^2(t) = v_0^2 e^{-2\gamma t} + \frac{e^{-2\gamma t}}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 F(t_1)F(t_2)e^{\gamma(t_1+t_2)}$$</p>
 <p>Ao tomar a média,</p>
-<p>$$\langle v^2(t) \rangle = v_0^2 e^{-2\gamma t} + \frac{e^{-2\gamma t}}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 \big\langle F(t_1)F(t_2) \big\rangle e^{\gamma(t_1+t_2)} \tag{10}$$</p>
+<p>$$\overline{v^2(t)} = v_0^2 e^{-2\gamma t} + \frac{e^{-2\gamma t}}{m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 \overline{F(t_1)F(t_2)} e^{\gamma(t_1+t_2)} \tag{10}$$</p>
 <p>Vamos impor a $F(t)$ a seguinte propriedade:</p>
-<p>$$\big\langle F(t_1)F(t_2) \big\rangle = \Gamma \delta(t_1 - t_2)$$</p>
+<p>$$\overline{F(t_1)F(t_2)} = \Gamma \delta(t_1 - t_2)$$</p>
 <p>Ela diz que não há correlação entre uma força e a seguinte. Isso não é verdade para líquidos, pois existem correlações hidrodinâmicas. No entanto, acaba sendo uma aproximação conveniente do ponto de vista matemático. Quanto maior a massa da partícula de interesse em relação às demais, melhor é essa aproximação.</p>
 <p>Aplicando essa propriedade na eq. (10), temos</p>
 <p>$$\begin{align}
-\langle v^2(t) \rangle &amp;= v_0^2 e^{-2\gamma t} + \frac{\Gamma e^{-2\gamma t}}{m^2}\int_{0}^{t}dt_1 e^{2\gamma t_1} \\ \\
+\overline{v^2(t)} &amp;= v_0^2 e^{-2\gamma t} + \frac{\Gamma e^{-2\gamma t}}{m^2}\int_{0}^{t}dt_1 e^{2\gamma t_1} \\ \\
 &amp;= v_0^2 e^{-2\gamma t} + \frac{\Gamma e^{-2\gamma t}}{2 m^2 \gamma}(e^{2\gamma t} - 1) \\ \\
 &amp;= v_0^2 e^{-2\gamma t} + \frac{\Gamma}{2 m^2 \gamma}(1 - e^{-2\gamma t}) \\ \\
 &amp;= \frac{\Gamma}{2m^2 \gamma} + \bigg(v_0^2 - \frac{\Gamma}{2m^2 \gamma}\bigg)e^{-2\gamma t} \tag{11}
@@ -12072,10 +12068,10 @@ x(t) &amp;= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{m}\in
 &amp;= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{\gamma m}\int_{0}^{t}dt_2 F(t_2)\big(1 - e^{\gamma (t_2 - t)}\big)
 \end{align}$$</p>
 <p>Tomando a média total, obtemos</p>
-<p>$$\langle x(t) \rangle = \langle x_0 \rangle + \bigg\langle\frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big)\bigg\rangle + \frac{1}{\gamma m}\bigg\langle\int_{0}^{t}dt_2 F(t_2) (1 - e^{\gamma (t_2 - t)}\big)\bigg\rangle$$</p>
-<p>$$= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{\gamma m}\int_{0}^{t}dt_2 \big\langle F(t_2) \big\rangle (1 - e^{\gamma (t_2 - t)}\big)$$</p>
-<p>Mas $\big\langle F(t) \big\rangle = 0$, portanto</p>
-<p>$$\large \langle x(t) \rangle = x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) \tag{16}$$</p>
+<p>$$\overline{x(t)} = \overline{x_0} + \overline{\frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big)} + \frac{1}{\gamma m}\overline{\int_{0}^{t}dt_2 F(t_2) (1 - e^{\gamma (t_2 - t)}\big)}$$</p>
+<p>$$= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{\gamma m}\int_{0}^{t}dt_2 \overline{F(t_2)} (1 - e^{\gamma (t_2 - t)}\big)$$</p>
+<p>Mas $\overline{F(t)} = 0$, portanto</p>
+<p>$$\overline{x(t)} = x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) \tag{16}$$</p>
 
 </div>
 </div>
@@ -12093,21 +12089,23 @@ x(t) &amp;= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{m}\in
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>$$\begin{align}
-x - \langle x \rangle &amp;= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{\gamma m}\int_{0}^{t}dt_2 F(t_2)\big(1 - e^{\gamma (t_2 - t)}\big) - x_0 - \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) \\ \\
+x - \overline{x} &amp;= x_0 + \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) + \frac{1}{\gamma m}\int_{0}^{t}dt_2 F(t_2)\big(1 - e^{\gamma (t_2 - t)}\big) - x_0 - \frac{v_0}{\gamma}\big(1 - e^{-\gamma t}\big) \\ \\
 &amp;= \frac{1}{\gamma m}\int_{0}^{t}dt_2 F(t_2)\big(1 - e^{\gamma (t_2 - t)}\big)
 \end{align}$$</p>
 <p>Ao tomar o quadrado da equação acima, chegamos a</p>
-<p>$$\big(x - \langle x \rangle\big)^2 = \frac{1}{\gamma^2 m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 F(t_1)F(t_2)\big(1 - e^{\gamma (t_1 - t)}\big)\big(1 - e^{\gamma (t_2 - t)}\big)$$</p>
+<p>$$\big(x - \overline{x}\big)^2 = \frac{1}{\gamma^2 m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2 F(t_1)F(t_2)\big(1 - e^{\gamma (t_1 - t)}\big)\big(1 - e^{\gamma (t_2 - t)}\big)$$</p>
 <p>Cuja média é</p>
-<p>$$\bigg\langle\big(x - \langle x \rangle\big)^2\bigg\rangle = \frac{1}{\gamma^2 m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2\big\langle F(t_1)F(t_2)\big\rangle\big(1 - e^{\gamma (t_1 - t)}\big)\big(1 - e^{\gamma (t_2 - t)}\big)$$</p>
-<p>Usando a propriedade de correlação $\langle F(t_1)F(t_2) \rangle = \Gamma \delta(t_1 - t_2)$:</p>
-<p>$$\bigg\langle\big(x - \langle x \rangle\big)^2\bigg\rangle = \frac{\Gamma}{\gamma^2 m^2}\int_{0}^{t}dt_1\big(1 - e^{\gamma (t_1 - t)}\big)^2$$</p>
+<p>$$\overline{\big(x - \overline{x}\big)^2} = \frac{1}{\gamma^2 m^2}\int_{0}^{t}dt_1\int_{0}^{t}dt_2\overline{ F(t_1)F(t_2)}\big(1 - e^{\gamma (t_1 - t)}\big)\big(1 - e^{\gamma (t_2 - t)}\big)$$</p>
+<p>Usando a propriedade de correlação $\overline{F(t_1)F(t_2)} = \Gamma \delta(t_1 - t_2)$:</p>
+<p>$$\overline{\big(x - \overline{x}\big)^2} = \frac{\Gamma}{\gamma^2 m^2}\int_{0}^{t}dt_1\big(1 - e^{\gamma (t_1 - t)}\big)^2$$</p>
 <p>Ao calcular a integral,</p>
-<p>$$\bigg\langle\big(x - \langle x \rangle\big)^2\bigg\rangle = \frac{\Gamma}{\gamma^2 m^2}\bigg(t + \frac{1}{2\gamma}\big(1 - e^{-2\gamma t}\big) - \frac{2}{\gamma}\big(1 - e^{-\gamma t} \big)\bigg)$$</p>
-<p>$t \rightarrow \infty \implies \bigg\langle\big(x - \langle x \rangle\big)^2\bigg\rangle = 2Dt$, onde $D = \frac{\Gamma}{2\gamma^2 m^2}$ é o coeficiente de difusão.</p>
+<p>$$\overline{\big(x - \overline{x}\big)^2} = \frac{\Gamma}{\gamma^2 m^2}\bigg(t + \frac{1}{2\gamma}\big(1 - e^{-2\gamma t}\big) - \frac{2}{\gamma}\big(1 - e^{-\gamma t} \big)\bigg)$$</p>
+<p>Para longos períodos de tempo, o primeiro termo domina e temos 
+$$\overline{\big(x - \overline{x}\big)^2} \approx 2Dt,$$
+onde $D = \frac{\Gamma}{2\gamma^2 m^2}$ é o coeficiente de difusão.</p>
 <p>Ao substituir a eq. (12) 
-$$\langle v^2(t) \rangle = \frac{\Gamma}{2m^2 \gamma}$$
-em $D = \frac{\Gamma}{2\gamma^2 m^2}$, temos uma equação que relaciona o coeficiente de difusão com a temperatura:</p>
+$$\overline{v^2(t)} = \frac{\Gamma}{2m^2 \gamma}$$
+em $D$, temos uma equação que relaciona o coeficiente de difusão com a temperatura:</p>
 <p>$$\large D = \frac{K_b}{m\gamma}T \large \tag{17}$$</p>
 <p>A equação acima diz que quanto maior for a temperatura, maior será a difusão da partícula, o que faz sentido físico!</p>
 <p>Essa mesma relação havia sido obtida independentemente por Sutherland (1904), Einstein (1905) e Smoluchowski (1906) em seus trabalhos sobre o movimento browniano. O modelo de Langevin leva ao mesmo resultado, porém com uma metodologia bem menos complicada.</p>
