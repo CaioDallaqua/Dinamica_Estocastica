@@ -11815,7 +11815,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A equação de Fokker-Planck é uma <a href="http://conteudo.icmc.usp.br/Portal/conteudoDinamicoSemVinculo.php?id_conteudos=448"><strong>Equação Diferencial Parcial</strong></a> que dita como a densidade de probabilidade de uma certa classe de <a href="http://reference.wolfram.com/language/guide/StochasticDifferentialEquationProcesses.html"><strong>Equações Diferenciais Estocásticas</strong></a> evolui no tempo.</p>
+<p>A equação de Fokker-Planck é uma <a href="http://conteudo.icmc.usp.br/Portal/conteudoDinamicoSemVinculo.php?id_conteudos=448"><strong>Equação Diferencial Parcial</strong></a> que dita como a densidade de probabilidade de uma certa classe de <a href="http://reference.wolfram.com/language/guide/StochasticDifferentialEquationProcesses.html"><strong>Equações Diferenciais Estocásticas</strong></a> evolui no tempo. Neste documento, deduziremos a equação de Fokker-Planck para o movimento browniano.</p>
 
 </div>
 </div>
@@ -11824,7 +11824,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Neste documento, deduziremos a equação de Fokker-Planck para o movimento browniano. Existem diversas formas de deduzir essa equação e aqui faremos isso com a abordagem desenvolvida por Uhlenbeck e Salomon. Em 1930, George Eugene Uhlenbeck e Leonard Salomon Ornstein publicaram um artigo na Physical Review com o título <a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.36.823"><strong>On the theory of Brownian motion</strong></a>, onde a equação de Fokker-Planck é deduzida para uma dimensão. Estaremos utilizando essa mesma abordagem, só que de forma expandida para três dimensões.</p>
+<p>Existem diversas formas de deduzir a equação de Fokker-Planck e aqui faremos isso com a abordagem desenvolvida por Uhlenbeck e Salomon. Em 1930, George Eugene Uhlenbeck e Leonard Salomon Ornstein publicaram um artigo na <strong>Physical Review</strong> com o título <a href="https://journals.aps.org/pr/abstract/10.1103/PhysRev.36.823"><strong>On the theory of Brownian motion</strong></a>, onde a equação de Fokker-Planck é deduzida para uma dimensão. Estaremos utilizando esta mesma abordagem, só que de forma expandida para três dimensões.</p>
 
 </div>
 </div>
@@ -11837,7 +11837,7 @@ div#notebook {
 <p>$$
          m\frac{d\vec{v}(t)}{dt} = -\gamma \vec{v}(t) + \vec{F}(t) \tag{1}
 $$</p>
-<p>Ela está na classe de Equações Diferenciais Estocásticas que possui uma Fokker-Planck associada. Então, para entender melhor sistemas descritos por Langevin, vamos deduzir a tal Equação de Fokker-Planck.</p>
+<p>Ela está na classe de Equações Diferenciais Estocásticas que possui uma Fokker-Planck associada. Então, para entender melhor sistemas descritos por Langevin, vamos deduzir a tal equação de Fokker-Planck.</p>
 
 </div>
 </div>
@@ -11874,8 +11874,8 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Vamos chamar de N o número total de partículas brownianas em suspensão. Agora suponha que estejamos interessados nas partículas com velocidade inicial $\vec{v_0}$, no instante $t = 0$, e cujas velocidades em $t \gt 0$ estejam no elemento de volume $d^3 v$. Esse número, $M$, é apenas uma fração do número total.</p>
-<p>$M$ é uma função de $\vec{v_0}$, $\vec{v}$ e $t$. Além disso, $M$ precisa ser proporcional a $d^3 v$, pois esse elemento de volume representa um subconjunto das velocidades possíveis e quanto maior esse subconjunto, maior tende a ser $M$. Dessa forma,</p>
+<p>Vamos chamar de N o número total de partículas brownianas em suspensão. Agora, suponha que estejamos interessados nas partículas com velocidade inicial $\vec{v_0}$, no instante $t = 0$, e cujas velocidades em $t \gt 0$ estejam no elemento de volume $d^3 v$. Esse número, $M$, é apenas uma fração do número total.</p>
+<p>$M$ precisa ser proporcional a $d^3 v$, pois esse elemento de volume representa um subconjunto das velocidades possíveis - e quanto maior esse subconjunto, maior tende a ser $M$. Dessa forma,</p>
 <p>$$M = N P\big(\vec{v_0}, \vec{v}, t\big) d^3 v \tag{2}$$</p>
 <p>onde $P\big(\vec{v_0}, \vec{v}, t\big)$ é a distribuição de velocidades das partículas brownianas. Fokker-Planck dá justamente a evolução temporal da distribuição $P\big(\vec{v_0}, \vec{v}, t\big)$ .</p>
 
@@ -11888,8 +11888,8 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Devido às colisões com as moléculas do fluido, a velocidade de cada partícula browniana irá mudar com o passar do tempo. Por esse motivo, nosso intuito aqui é achar uma equação que relacione $P\big(\vec{v_0}, \vec{v}, t + \Delta t\big)$ com $P\big(\vec{v_0}, \vec{v}, t\big)$.
 Tendo ela, podemos calcular a derivada parcial de $P$ com relação a $t$ através do limite em que $\Delta t \to 0$.</p>
-<p>$$\frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} = \lim_{\Delta t \to 0} \frac{P\big(\vec{v_0}, \vec{v}, t + \Delta t\big) - P\big(\vec{v_0}, \vec{v}, t\big)}{\Delta t} \tag{3}$$</p>
-<p>O resultado do limite acima fornece, portanto, a Equação Diferencial Parcial que dita a evolução de $P\big(\vec{v_0}, \vec{v}, t\big)$.</p>
+<p>$$\frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} := \lim_{\Delta t \to 0} \frac{P\big(\vec{v_0}, \vec{v}, t + \Delta t\big) - P\big(\vec{v_0}, \vec{v}, t\big)}{\Delta t} \tag{3}$$</p>
+<p>O resultado do limite acima fornece, portanto, a EDP que dita a evolução temporal de $P\big(\vec{v_0}, \vec{v}, t\big)$.</p>
 
 </div>
 </div>
@@ -11900,10 +11900,10 @@ Tendo ela, podemos calcular a derivada parcial de $P$ com relação a $t$ atrav�
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Agora, vamos usar um raciocínio similar ao que nos deu uma expressão para $M$. Queremos saber o número de partículas com velocidades em $d^3 v$, no instante $t + \Delta t$ e com velocidades iniciais $\vec{v_0}$.</p>
 <p>$$M' = N P\big(\vec{v_0}, \vec{v}, t + \Delta t\big) d^3 v \tag{4}$$</p>
-<p>Note que, por conta das colisões, se a velocidade é $\vec{v}$ em $t + \Delta t$, a velocidade em $t$ será diferente.</p>
+<p>Note que, por conta das colisões, se a velocidade é $\vec{v}$ em $t + \Delta t$, a velocidade em $t$ tende a ser diferente.</p>
 <p>$$NP\big(\vec{v_0}, \vec{v} - \vec{u}, t\big)d^3 v$$</p>
-<p>Porém, nem todas as partículas receberam um acréscimo de $\vec{u}$ na velocidade durante o intervalo $\Delta t$. Isso quer dizer que M' é apenas uma fração da expressão acima.</p>
-<p>Seja $g\big(\vec{v} - \vec{u}, t, \vec{u}, \Delta t\big)$ a distribuição de velocidades das partículas com velocidade $\vec{v} - \vec{u}$, em $t$, que recebem um incremento de $\vec{u}$ durante o intervalo $\Delta t$. Portanto, uma parcela de M' é dada por</p>
+<p>Porém, nem todas as partículas receberam um acréscimo de $\vec{u}$ na velocidade durante o intervalo $\Delta t$. Isso quer dizer que $M'$ é apenas uma fração da expressão acima.</p>
+<p>Seja $g\big(\vec{v} - \vec{u}, t, \vec{u}, \Delta t\big)$ a distribuição de velocidades das partículas com velocidade $\vec{v} - \vec{u}$, em $t$, que recebem um incremento de $\vec{u}$ durante o intervalo $\Delta t$. Uma parcela de $M'$ é então dada por</p>
 <p>$$N P\big(\vec{v_0}, \vec{v}-\vec{u}, t\big) g\big(\vec{v} - \vec{u}, t, \vec{u}, \Delta t\big) d^3 v d^3 u \tag{5}$$</p>
 <p>Considerar todas as contribuições para essa quantidade de $t$ até $t + \Delta t$ equivale a integrar a expressão acima sobre todos os valores de $\vec{u}$.</p>
 <p>$$ \begin{align}
@@ -12074,7 +12074,7 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Nosso objetivo é calcular</p>
 <p>$$
-\frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} = \lim_{\Delta t \to 0} \frac{P\big(\vec{v_0}, \vec{v}, t + \Delta t\big) - P\big(\vec{v_0}, \vec{v}, t\big)}{\Delta t}
+\frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} := \lim_{\Delta t \to 0} \frac{P\big(\vec{v_0}, \vec{v}, t + \Delta t\big) - P\big(\vec{v_0}, \vec{v}, t\big)}{\Delta t}
 $$</p>
 <p>Lembrando que $\langle \vec u \rangle_v$ e $\big\langle \vec{u}^2 \big\rangle_v$ são funções de $\Delta t$, temos:</p>
 <p>$$
@@ -12094,8 +12094,8 @@ $$</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Por conveniência, façamos</p>
-<p>$$h_1 = \lim_{\Delta t \to 0} \frac{1}{\Delta t}\langle \vec u \rangle_v \tag{23}$$</p>
-<p>$$h_2 = \lim_{\Delta t \to 0} \frac{1}{\Delta t}\big\langle \vec{u}^2 \big\rangle_v \tag{24}$$</p>
+<p>$$h_1 := \lim_{\Delta t \to 0} \frac{1}{\Delta t}\langle \vec u \rangle_v \tag{23}$$</p>
+<p>$$h_2 := \lim_{\Delta t \to 0} \frac{1}{\Delta t}\big\langle \vec{u}^2 \big\rangle_v \tag{24}$$</p>
 <p>Então, substituindo e reorganizando:</p>
 <p>$$\begin{align}
 \frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} &amp;= \bigg(\frac{1}{6}\frac{\partial}{\partial{\vec v}}\cdot\frac{\partial{h_2}}{\partial{\vec v}}- \frac{\partial}{\partial{\vec{v}}}\cdot h_1 \bigg)P\big(\vec{v_0}, \vec{v}, t\big) \\ \\
@@ -12127,8 +12127,8 @@ $$</p>
 <p>Cujo valor médio no ensemble dá</p>
 <p>$$\big \langle \vec u \big \rangle_v = -\frac{\gamma}{m}\bigg \langle\int_{t}^{t + \Delta t} dt'\vec{v}(t') \bigg\rangle_v \tag{27}$$</p>
 <p>pois $\big\langle \vec{F}(t') \big\rangle_v = 0$, como já vimos na <a href="https://rawgit.com/CaioDallaqua/Dinamica_Estocastica/master/HTML/Teoria_do_Movimento_Browniano_com_Langevin.html"><strong>Teoria do Movimento Browniano com Langevin</strong></a>.</p>
-<p>Observe, contudo, que</p>
-<p>$$\int_{t}^{t + \Delta t} dt' \vec{v}(t') = \vec{v}(t)\Delta t + O\big[\Delta t^2\big] \tag{28}$$</p>
+<p>Além disso, é possível mostrar (e está no Apêndice 1) que:
+$$\int_{t}^{t + \Delta t} dt' \vec{v}(t') = \vec{v}(t)\Delta t + O\big[\Delta t^2\big] \tag{28}$$</p>
 <p>Usando isso em $\big \langle \vec u \big \rangle_v$:</p>
 <p>$$\begin{align}
 \big \langle \vec u \big \rangle_v &amp;= -\frac{\gamma}{m}\bigg \langle \vec{v}(t)\Delta t + O\big[\Delta t^2\big] \bigg \rangle_v \\
@@ -12244,17 +12244,17 @@ $$</p>
     \bigg\langle \big[\vec{v}(\infty)\big]^2 \bigg\rangle_v &amp;= \frac{\Gamma}{2\gamma m} \tag{39}
 \end{align}
 $$</p>
-<p>No entanto, pelo teorema da equipartição, sabemos que $m\big\langle [\vec{v}(\infty)]^2 \big\rangle_v = 3K_B T$. Inserindo isso na Eq.(89),</p>
+<p>No entanto, pelo teorema da equipartição, sabemos que $m\big\langle [\vec{v}(\infty)]^2 \big\rangle_v = 3K_B T$. Inserindo isso na Eq.(39), obtemos $\Gamma$:</p>
 <p>$$
     \Gamma = 6 \gamma K_B T \tag{40}
 $$</p>
-<p>A velocidade quadrática média se torna</p>
+<p>A velocidade quadrática média se torna, então,</p>
 <p>$$
 \begin{align}
     \bigg\langle \big[\vec{v}(t + \Delta t)\big]^2 \bigg\rangle_v &amp;= \big[\vec{v}(t)\big]^2 exp\bigg(\frac{-2\gamma}{m}\Delta t\bigg) + \frac{3 K_B T}{m} \bigg [1 - exp \bigg ( \frac{-2\gamma}{m} \Delta t \bigg) \bigg] \tag{41}
 \end{align}
 $$</p>
-<p>Expandindo em $\Delta t$, temos, em primeira ordem,</p>
+<p>Expandindo as exponenciais:</p>
 <p>$$ 
 \begin{align}
     \bigg\langle \big[\vec{v}(t + \Delta t)\big]^2 \bigg\rangle_v &amp;= \big[\vec{v}(t)\big]^2 \bigg(1 - \frac{2\gamma}{m}\Delta t\bigg) + \frac{3 K_B T}{m} \frac{2\gamma}{m}\Delta t +O\big[(\Delta t)^2\big] \\ \\
@@ -12315,7 +12315,7 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Recordando que $h_1 = -\frac{\gamma}{m}\vec{v}(t)$, temos então</p>
+<p>Tendo $h_1 = -\frac{\gamma}{m}\vec{v}(t) \,\,\,e \,\, h_2 = \frac{6 \gamma K_B T}{m^2}$, obtemos</p>
 <p>$$\begin{align}
 \frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} &amp;= \frac{\gamma}{m}\frac{\partial}{\partial{\vec{v}}}\cdot \vec{v}(t) P\big(\vec{v_0}, \vec{v}, t\big) \\ \\
 &amp;+ \frac{\gamma}{m}\vec{v}(t)\cdot\frac{\partial}{\partial{\vec v}}P\big(\vec{v_0}, \vec{v}, t\big) \\ \\
@@ -12334,7 +12334,7 @@ $$</p>
 <p>$$\begin{align}
 \frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} &amp;= \frac{\gamma}{m}\frac{\partial}{\partial{\vec{v}}}\cdot \vec{v}(t) P\big(\vec{v_0}, \vec{v}, t\big) + \frac{\gamma}{m}\vec{v}(t)\cdot\frac{\partial}{\partial{\vec v}}P\big(\vec{v_0}, \vec{v}, t\big) + \frac{\gamma K_B T}{m^2} \frac{\partial}{\partial{\vec v}}\cdot\frac{\partial}{\partial{\vec v}}P\big(\vec{v_0}, \vec{v}, t\big) \tag{46}
 \end{align}$$</p>
-<p>Reorganizando, obtemos a chamada <strong>Equação de Fokker-Planck</strong> para o movimento browniano:</p>
+<p>Reorganizando, vemos a chamada <strong>Equação de Fokker-Planck</strong> para o movimento browniano:</p>
 <p>$$
 \large \frac{\partial P\big(\vec{v_0}, \vec{v}, t\big)}{\partial t} = \frac{\gamma}{m}\frac{\partial}{\partial{\vec v}}\cdot\big[\vec{v}(t) P\big(\vec{v_0},\vec{v}, t\big)\big] + \frac{\gamma K_B T}{m^2} \frac{\partial}{\partial{\vec v}}\cdot\frac{\partial}{\partial{\vec v}}P\big(\vec{v_0}, \vec{v}, t\big)
 $$</p>
@@ -12358,6 +12358,35 @@ $$</p>
 <p>[2] <a href="http://nerdyard.com/a-equacao-de-fokker-e-planck-para-o-movimento-browniano/">http://nerdyard.com/a-equacao-de-fokker-e-planck-para-o-movimento-browniano/</a></p>
 <p>[3] TOMÉ, T.; OLIVEIRA, M. - Dinâmica Estocástica e Irreversibilidade</p>
 <p>[4] <a href="http://www.azimuthproject.org/azimuth/show/Fokker-Planck+equation">http://www.azimuthproject.org/azimuth/show/Fokker-Planck+equation</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ap&#234;ndice-1">Ap&#234;ndice 1<a class="anchor-link" href="#Ap&#234;ndice-1">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>$$\vdash \int_{t}^{t + \Delta t} dt' \vec{v}(t') = \vec{v}(t)\Delta t + O\big[\Delta t^2\big]$$</p>
+<p>Expandindo $\vec{v}(t')$ em série de Taylor ao redor de $t$:
+$$\vec{v}(t') = \vec{v}(t) + \frac{d}{dt'}\vec{v}(t')\bigg|_{t} (t - t') + \dots$$</p>
+<p>Inserindo na integral, temos
+$$\begin{align}
+\int_{t}^{t + \Delta t} dt' \vec{v}(t') &amp;= v(t)\int_{t}^{t + \Delta t} dt' + \frac{d}{dt'}\vec{v}(t')\bigg|_{t}\int_{t}^{t + \Delta t} dt'(t-t') + \dots \\ \\
+&amp;= \vec{v}(t)\Delta t + \frac{d}{dt'}\vec{v}(t')\bigg|_{t} \bigg(t\Delta t - \frac{t'^2}{2}\bigg|_t^{t+\Delta t}\bigg) \\ \\
+&amp;= \vec{v}(t)\Delta t + \frac{d}{dt'}\vec{v}(t')\bigg|_{t} \bigg(t\Delta t - \frac{(t + \Delta t)^2}{2} + \frac{t^2}{2}\bigg) + \cdots \\ \\
+&amp;= \vec{v}(t)\Delta t - \frac{d}{dt'}\vec{v}(t')\bigg|_{t} \frac{\Delta t^2}{2} + \cdots \\ \\
+&amp;= \vec{v}(t)\Delta t + O[\Delta t^2]
+\end{align}$$</p>
+<p>Então, se $v(t')$ for tal que possamos expandir essa função em Taylor ao redor de $t$,</p>
+<p>$$\int_{t}^{t + \Delta t} dt' \vec{v}(t') = \vec{v}(t)\Delta t + O\big[\Delta t^2\big]$$</p>
 
 </div>
 </div>
